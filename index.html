@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Indharajith Fitness</title>
+<link rel="icon" type="image/avif" href="gym2.avif" />
+<meta name="theme-color" content="#0f172a" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-player/1.4.3/lottie-player.js"></script>
+</head>
+<body>
+<div class="bg-orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<nav class="top-nav">
+  <div class="logo">Indharajith Fitness</div>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="classes.html">Classes</a>
+    <a href="trainers.html">Trainers</a>
+    <a href="membership.html">Memberships</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <!-- Interactive Lottie removed based on user request -->
+  <div class="overlay"></div>
+  <div class="content container">
+    <div class="badge anim-delay-200">TRANSFORM YOUR BODY • BUILD YOUR POWER</div>
+    <h1 class="anim-delay-400">No Excuses. Only Results.</h1>
+    <p class="lead anim-delay-600">Push beyond your limits with elite training programs and expert trainers. Your fitness journey starts here.</p>
+    <div class="ctas anim-delay-800">
+      <a class="button primary" href="membership.html">Join Now</a>
+      <a class="button secondary" href="classes.html">View Classes</a>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Tap-to-Call</h3>
+        <a class="lead" href="tel:+911234567890">+91 12345 67890</a>
+        <div class="small">Open 5am to 11pm</div>
+        <lottie-player class="lottie-card-bg" src="lotties/bicep.json" background="transparent" speed="1" loop autoplay></lottie-player>
+      </div>
+      <div class="card">
+        <h3>Tap-to-Message</h3>
+        <div class="flex">
+          <a class="button secondary" href="https://wa.me/911234567890">WhatsApp</a>
+          <a class="button secondary" href="sms:+911234567890">SMS</a>
+        </div>
+      </div>
+      <div class="card" id="member-auth-card">
+        <h3>Member Login</h3>
+        <p class="small">Manage subscriptions, payments, bookings.</p>
+        <button class="button primary" id="auth-main-btn" onclick="openPortal()">Member Portal</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Member Portal Modal -->
+<div id="portal-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closePortal()">&times;</span>
+    <h2 class="mb-10">Member Portal</h2>
+    <p class="small mb-24">Sign in to manage your fitness journey.</p>
+    <form id="login-form">
+      <div class="form-group">
+        <input class="form-control" name="email" type="email" placeholder="Email" id="lemail" required />
+        <label class="form-label" for="lemail">Email Address</label>
+      </div>
+      <div class="form-group pos-relative">
+        <input class="form-control pr-45" name="password" type="password" placeholder="Password" id="lpass" required />
+        <label class="form-label" for="lpass">Password</label>
+        <button type="button" class="eye-btn" onclick="togglePassword('lpass', 'eye-icon')">
+          <svg id="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+          </svg>
+        </button>
+      </div>
+      <button class="button primary btn-block" type="submit" onclick="loginUser(event);">Secure Login</button>
+      
+      <!-- Google Auth Section -->
+      <div class="auth-divider">
+        <hr />
+        <span>OR</span>
+        <hr />
+      </div>
+
+      <button type="button" onclick="simulateGoogleLogin()" class="google-auth-btn" id="google-auth-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c10.02,0,18.339-7.319,19.8-16.89C43.929,24.717,43.929,22.355,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+        Continue with Google
+      </button>
+
+      <div class="text-center mt-20">
+        <a href="#" class="link-accent" onclick="event.preventDefault(); openForgotModal();">Forgot Password?</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div id="forgot-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeForgot()">&times;</span>
+    <h2 class="mb-10">Reset Password</h2>
+    <p class="small mb-24">Enter your email to receive recovery instructions.</p>
+    <form id="forgot-form">
+      <div class="form-group">
+        <input class="form-control" name="recover-email" type="email" placeholder="Email" id="remail" required />
+        <label class="form-label" for="remail">Registered Email</label>
+      </div>
+      <button class="button primary btn-block" type="submit" onclick="event.preventDefault(); alert('Recovery link sent!'); closeForgot();">Send Recovery Link</button>
+      <div class="text-center mt-16">
+        <a href="index.html" class="link-muted" onclick="event.preventDefault(); closeForgot(); openPortal();">Back to Login</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+       <h3 class="footer-heading">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M6 5v14M18 5v14M2 7h4v10H2zM18 7h4v10h-4zM6 12h12"></path></svg>
+          Indharajith Fitness
+       </h3>
+      <p class="small">High-intensity classes, elite trainers, and flexible memberships designed to keep you progressing.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="classes.html">Classes</a>
+      <a href="trainers.html">Trainers</a>
+      <a href="membership.html">Memberships</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <a href="tel:+911234567890">+91 12345 67890</a>
+      <a href="mailto:info@indharajithfitness.com">info@indharajithfitness.com</a>
+      <div class="mt-8">Open 5 AM – 11 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Indharajith Fitness. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
