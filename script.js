@@ -261,6 +261,12 @@ window.openPortal = () => toggleModal('portal-modal', true);
 window.closePortal = () => toggleModal('portal-modal', false);
 window.openForgotModal = () => { closePortal(); toggleModal('forgot-modal', true); };
 window.closeForgot = () => toggleModal('forgot-modal', false);
+window.openLightbox = (src) => {
+    const img = document.getElementById('lightbox-img');
+    if (img) img.src = src;
+    toggleModal('lightbox-modal', true);
+};
+window.closeLightbox = () => toggleModal('lightbox-modal', false);
 
 /**
  * Reusable modal toggler function
@@ -282,8 +288,10 @@ function toggleModal(modalId, show) {
 document.addEventListener('click', e => {
     const pModal = document.getElementById('portal-modal');
     const fModal = document.getElementById('forgot-modal');
+    const lModal = document.getElementById('lightbox-modal');
     if (pModal && e.target === pModal) closePortal();
     if (fModal && e.target === fModal) closeForgot();
+    if (lModal && e.target === lModal) window.closeLightbox();
 });
 
 /* ==========================================================================
