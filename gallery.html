@@ -33,12 +33,35 @@
 <section id="gallery" class="pt-20">
   <div class="container">
     <div class="cards">
-      <div class="card card-p0"><img src="images/gym equip.avif" class="img-cover" alt="Gym" /></div>
-      <div class="card card-p0"><img src="images/fitness.jpg" class="img-cover" alt="Equipment" /></div>
-      <div class="card card-p0"><img src="images/ronnie.jpg" class="img-cover" alt="Training" /></div>
+      <div class="card card-p0 gallery-card" onclick="openLightbox('images/gym equip.avif')">
+        <img src="images/gym equip.avif" class="img-cover" alt="Gym" />
+        <div class="gallery-overlay">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+      <div class="card card-p0 gallery-card" onclick="openLightbox('images/fitness.jpg')">
+        <img src="images/fitness.jpg" class="img-cover" alt="Equipment" />
+        <div class="gallery-overlay">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+      <div class="card card-p0 gallery-card" onclick="openLightbox('images/ronnie.jpg')">
+        <img src="images/ronnie.jpg" class="img-cover" alt="Training" />
+        <div class="gallery-overlay">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox-modal" class="modal" onclick="closeLightbox()">
+  <span class="close-modal" onclick="closeLightbox()">&times;</span>
+  <div class="modal-content lightbox-content" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="Gym Gallery Preview" />
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="container footer-content">
