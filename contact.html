@@ -1,4 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Indharajith Fitness</title>
+<link rel="icon" type="image/avif" href="gym2.avif" />
+<meta name="theme-color" content="#0f172a" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-player/1.4.3/lottie-player.js"></script>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="logo">Indharajith Fitness</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="classes.html">Classes</a>
+    <a href="trainers.html">Trainers</a>
+    <a href="membership.html">Memberships</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+</nav>
 
+<div class="page-header">
+  <div class="container">
+    <h2>Find Us</h2>
+    <p>Reach out to us for any inquiries. We're here to help you get started.</p>
+  </div>
+</div>
+<section id="contact" class="pt-20">
+  <div class="lottie-container">
+        <lottie-player class="lottie-inline" src="lotties/globe-animation.json" background="transparent" speed="1" loop autoplay></lottie-player>
+  </div>
+  <div class="container">
+    <div class="grid-2">
+      <div class="card">
+        <h3>Visit</h3>
+        <p class="small">Indharajith Fitness, Main road, Vasudevanallur<br>Landmarks: Opp. TNEB Vasudevanallur · Near Chinthamaniperiputher·</p>
+        <div class="flex">
+          <a class="button primary" href="https://maps.google.com?q=Indharajith+Fitness" target="_blank">Get Directions</a>
+          <a class="button secondary" href="tel:+91 94427 42982">Call</a>
+          <a class="button secondary" href="mailto:info@indhrajithfitness.com">Email</a>
+        </div>
+        <div class="flex flex-mt8">
+          <a class="button secondary" href="https://wa.me/911234567890">WhatsApp</a>
+          <a class="button secondary" href="sms:+91 94427 42982">Message</a>
+        </div>
+        <lottie-player class="lottie-card-bg" src="lotties/globe2.json" background="transparent" speed="1" loop autoplay></lottie-player>
+      </div>
+      <div class="map card card-p0" onclick="window.open('https://maps.google.com?q=Indharajith+Fitness', '_blank')">
+        <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7803!2d80.246!3d12.961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267d6c43f!2sGym!5e0!3m2!1sen!2sin!4v0000000000"></iframe>
+      </div>
+    </div>
+</section>
+
+<!-- FAQs Section -->
+<section id="faq" class="pt-20">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <p class="lead">Got questions? We've got answers to help you get started.</p>
+    
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What are the gym timings?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Indharajith Fitness is open every day from 5:00 AM to 11:00 PM. You can choose any slot that fits your schedule, whether you are an early bird or a night owl.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Do you provide personal trainers and diet plans?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! We have certified fitness experts like Arjun, Meera, and Jith. Customized personal training and scientific nutritional diet plans are available based on your chosen membership plan or as add-on packages.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Can I get a free trial class?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. We offer a complimentary trial session for newcomers. Simply register a basic account in our Member Portal or visit the Classes page to request a spot, and mention it's your first time!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What payment methods do you accept?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>We support all major payment types including Google Pay, PhonePe, Paytm, netbanking across top Indian banks (SBI, HDFC, ICICI, etc.), and credit/debit cards through our encrypted checkout portals.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Can I freeze or suspend my membership?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, we understand that travel or health might pause your routine. Pro members can freeze their membership for up to 30 days in a year at no additional charge by notifying us in advance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+       <h3 class="footer-heading">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M6 5v14M18 5v14M2 7h4v10H2zM18 7h4v10h-4zM6 12h12"></path></svg>
+          Indharajith Fitness
+       </h3>
+      <p class="small">High-intensity classes, elite trainers, and flexible memberships designed to keep you progressing.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="classes.html">Classes</a>
+      <a href="trainers.html">Trainers</a>
+      <a href="membership.html">Memberships</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <a href="tel:+911234567890">+91 12345 67890</a>
+      <a href="mailto:info@indharajithfitness.com">info@indharajithfitness.com</a>
+      <div class="mt-8">Open 5 AM – 11 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Indharajith Fitness. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
 
