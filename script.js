@@ -1,22 +1,4 @@
 
-                <div style="display: flex; align-items: center; gap: 16px;">
-                    <div style="display: flex; flex-direction: column; align-items: center; width: 64px; background: rgba(255,255,255,0.04); padding: 8px 0; border-radius: 8px; border: 1px solid var(--border);">
-                        <span style="font-size: 17px; font-weight: 800; color: ${isLive ? 'var(--accent)' : 'var(--text)'};">${hour12}:${minuteStr}</span>
-                        <span style="font-size: 11px; font-weight: 700; color: var(--muted);">${ampm}</span>
-                    </div>
-                    <div style="display: flex; flex-direction: column;">
-                        <span style="font-size: 17px; font-weight: 700; color: ${isLive ? 'var(--text)' : 'var(--muted)'};">${c.name}</span>
-                        <span style="font-size: 13px; color: var(--muted); margin-top:2px; font-weight: 400;"><span style="color:var(--accent);">●</span> Main Studio</span>
-                    </div>
-                </div>
-                ${isLive ? '<span class="badge-live"><span style="display:block;width:8px;height:8px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);"></span> Live Now</span>' : ''}
-            `;
-            scheduleContainer.appendChild(slot);
-        });
-
-        // Update the next class notice
-        const nextClassEl = document.getElementById('next-class');
-        if (nextClassEl) {
             nextClassEl.textContent = nextClassText || 'All sessions done for today. See you tomorrow!';
         }
     }
