@@ -716,9 +716,20 @@ function initBeforeAfterSlider() {
     if (!slider) return;
     
     const resizeContainer = slider.querySelector('.slider-resize-container');
+    const beforeImg = slider.querySelector('.before-image');
     const handle = slider.querySelector('.slider-handle');
     
     let active = false;
+    
+    // Ensure the cropped image matches the exact width of the slider container
+    const syncImageWidth = () => {
+        if (beforeImg) {
+            beforeImg.style.width = `${slider.offsetWidth}px`;
+        }
+    };
+    
+    syncImageWidth();
+    window.addEventListener('resize', syncImageWidth);
     
     const slideMove = (clientX) => {
         const rect = slider.getBoundingClientRect();
@@ -740,12 +751,17 @@ function initBeforeAfterSlider() {
     });
     
     // Mobile touch events
-    slider.addEventListener('touchstart', () => { active = true; });
+    slider.addEventListener('touchstart', (e) => { 
+        active = true; 
+    }, { passive: true });
+    
     window.addEventListener('touchend', () => { active = false; });
-    window.addEventListener('touchmove', (e) => {
+    
+    slider.addEventListener('touchmove', (e) => {
         if (!active) return;
         slideMove(e.touches[0].clientX);
-    });
+        if (e.cancelable) e.preventDefault(); // Stop mobile vertical page scroll when actively dragging slider
+    }, { passive: false });
     
     // Handle clicking directly on the slider
     slider.addEventListener('click', (e) => {
@@ -771,4 +787,3 @@ function injectWhatsAppButton() {
     `;
     document.body.appendChild(waButton);
 }
-
