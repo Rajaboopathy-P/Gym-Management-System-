@@ -1,22 +1,4 @@
 
-
-    const classes = [
-        { time: '06:00', name: 'HIIT Blast' },
-        { time: '07:30', name: 'Strength & Conditioning' },
-        { time: '10:00', name: 'Mobility & Core' },
-        { time: '17:30', name: 'Spin Power' },
-        { time: '19:00', name: 'Boxing Basics' }
-    ];
-
-    function renderSchedule() {
-        const now = new Date();
-        const currentMinutes = now.getHours() * 60 + now.getMinutes();
-        
-        scheduleContainer.innerHTML = '';
-        let nextClassText = '';
-
-        classes.forEach(c => {
-            const [h, m] = c.time.split(':').map(Number);
             const startStr = h * 60 + m;
             const endStr = startStr + 60;
             const isLive = currentMinutes >= startStr && currentMinutes < endStr;
