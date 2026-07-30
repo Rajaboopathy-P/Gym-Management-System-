@@ -1,21 +1,4 @@
 /**
- * Indharajith Fitness - Main JavaScript File
- * Handles UI interactions, authentication state, class scheduling, and form bookings.
- */
-
-/* ==========================================================================
-   1. PWA (Progressive Web App) Setup
-   ========================================================================== */
-(async () => {
-    // Dynamically create and inject a web app manifest for installation
-    const manifest = {
-        name: "Indharajith Fitness",
-        short_name: "Fitness",
-        display: "standalone",
-        start_url: "./index.html",
-        background_color: "#0b1224",
-        theme_color: "#0f172a",
-        icons: []
     };
     const blob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
     const manifestURL = URL.createObjectURL(blob);
