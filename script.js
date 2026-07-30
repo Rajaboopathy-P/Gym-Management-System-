@@ -1,23 +1,4 @@
 
-            const startStr = h * 60 + m;
-            const endStr = startStr + 60;
-            const isLive = currentMinutes >= startStr && currentMinutes < endStr;
-            
-            // Determine the next upcoming class
-            if (!nextClassText && currentMinutes < startStr) {
-                nextClassText = `Next: ${c.name} at ${c.time}`;
-            }
-
-            // Formatting time
-            const isPM = h >= 12;
-            const hour12 = h % 12 || 12;
-            const ampm = isPM ? 'PM' : 'AM';
-            const minuteStr = m < 10 ? '0' + m : m;
-
-            // Create schedule slot element
-            const slot = document.createElement('div');
-            slot.className = 'slot' + (isLive ? ' live' : '');
-            slot.innerHTML = `
                 <div style="display: flex; align-items: center; gap: 16px;">
                     <div style="display: flex; flex-direction: column; align-items: center; width: 64px; background: rgba(255,255,255,0.04); padding: 8px 0; border-radius: 8px; border: 1px solid var(--border);">
                         <span style="font-size: 17px; font-weight: 800; color: ${isLive ? 'var(--accent)' : 'var(--text)'};">${hour12}:${minuteStr}</span>
