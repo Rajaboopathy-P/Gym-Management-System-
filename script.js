@@ -1,22 +1,4 @@
 
-        const msgEl = document.getElementById('booking-msg');
-        const submitBtn = bookingForm.querySelector('button[type="submit"]');
-        const isLoggedIn = localStorage.getItem('gym_auth_status') === 'true';
-
-        // Implicit Login/Signup for Guest Users
-        if (!isLoggedIn) {
-            const pwd = data.get('password');
-            if (!pwd || pwd.length < 3) {
-                alert("Please enter a password to secure your class booking and create an account.");
-                return;
-            }
-            // Authenticate immediately
-            localStorage.setItem('gym_auth_status', 'true');
-            localStorage.setItem('gym_user', data.get('email'));
-            updateAuthUI();
-            alert("Account created and logged in successfully! Processing booking...");
-        }
-
         if (submitBtn) {
             submitBtn.textContent = 'Sending Booking...';
             submitBtn.disabled = true;
