@@ -1,22 +1,4 @@
 
-            nextClassEl.textContent = nextClassText || 'All sessions done for today. See you tomorrow!';
-        }
-    }
-
-    renderSchedule(); 
-    setInterval(renderSchedule, 60000); // re-render every minute
-}
-
-/**
- * Handles class booking submissions
- */
-function initBookingForm() {
-    const bookingForm = document.getElementById('booking-form');
-    if (!bookingForm) return;
-
-    bookingForm.addEventListener('submit', e => {
-        e.preventDefault();
-        const data = new FormData(e.target);
         const msgEl = document.getElementById('booking-msg');
         const submitBtn = bookingForm.querySelector('button[type="submit"]');
         const isLoggedIn = localStorage.getItem('gym_auth_status') === 'true';
