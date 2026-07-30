@@ -622,6 +622,18 @@ form { display: grid; gap: 16px; }
   vertical-align: middle;
 }
 
+/* Responsive adjustment for comparison slider height */
+@media (max-width: 768px) {
+  .comparison-slider {
+    height: 280px !important;
+  }
+}
+@media (max-width: 480px) {
+  .comparison-slider {
+    height: 200px !important;
+  }
+}
+
 /* --- Portal Dashboard & Modal Upgrades --- */
 .modal-large {
   max-width: 650px !important;
@@ -841,6 +853,48 @@ form { display: grid; gap: 16px; }
   color: #5f6368;
   font-size: 12px;
 }
+
+/* --- Real Reviews Spacing Upgrades --- */
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-card {
+  padding: 28px 24px !important;
+  margin-bottom: 24px !important; /* Increased spacing between cards */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.testimonial-card:last-child {
+  margin-bottom: 0 !important;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.testimonial-card .stars {
+  color: #f59e0b; /* Bright golden yellow stars */
+  font-size: 14px;
+  letter-spacing: 2px; /* Spacing between stars */
+}
+.testimonial-card p {
+  line-height: 1.7 !important; /* Breathable line spacing for quotes */
+  font-size: 15px !important;
+  color: #d1d5db !important;
+}
+.testimonial-card span.text-15-semibold {
+  font-size: 16px;
+  color: #fff;
+}
+
+/* Mobile viewport separator for testimonials container */
+@media (max-width: 768px) {
+  .testimonials-container {
+    margin-top: 48px !important; /* Clear spacing from slider card on mobile */
+  }
+}
+
 
 
 
