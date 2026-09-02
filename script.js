@@ -29,8 +29,7 @@
 /* ==========================================================================
    2. DOM Configuration & Event Listeners
    ========================================================================== */
-const API_URL = "http://127.0.0.1:8000/api";
-
+const API_URL = "https://indharajith-fitness-backend.onrender.com/api";
 window.authState = {
     isAuthenticated: false,
     email: '',
