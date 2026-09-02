@@ -19,14 +19,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-kbz&91b@37bkak7l^wf6%j388o+xxu(5&k&je=0wymb#4os^wr'
+import os
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
-ALLOWED_HOSTS = ['*']
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
+ALLOWED_HOSTS = [
+    'indharajith-fitness-backend.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -43,7 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -78,24 +81,31 @@ WSGI_APPLICATION = 'gym_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'indharajith_fitness',
-        'USER': 'root',
-        'PASSWORD': 'boopathy',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'USER': 'indharajith_user',
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': 'dpg-dac401f40ujc73auvpr0-a',
+        'PORT': '5432',
     }
 }
 
 # CORS & Cookie Session Configurations
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-SESSION_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SAMESITE = 'Lax'
-CSRF_COOKIE_SECURE = False
-CSRF_TRUSTED_ORIGINS = ['http://localhost:5500', 'http://127.0.0.1:5500', 'http://127.0.0.1:8000']
+CORS_ALLOWED_ORIGINS = [
+    'https://indharajith-fitness.vercel.app',
+]
 
+CORS_ALLOW_CREDENTIALS = True
+
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://indharajith-fitness.vercel.app',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -115,6 +125,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://indharajith-fitness.vercel.app',
+]
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+ALLOWED_HOSTS = [
+    'indharajith-fitness-backend.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'https://indharajith-fitness.vercel.app',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
@@ -133,4 +159,4 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
-"whitenoise.middleware.WhiteNoiseMiddleware",
+
