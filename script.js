@@ -668,7 +668,8 @@ window.processMembershipPayment = async function(e) {
         
         if (result.success) {
             await fetchUserStatus();
-            alert("Account verified and membership tier updated in MySQL database!");
+            alert("Account verified and membership tier updated successfully!");
+
             
             // Process redirect simulation
             setTimeout(() => {
